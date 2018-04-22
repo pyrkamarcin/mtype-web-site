@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{% block header %}
+    <div class="overlay overlay-2"></div>
+    <div class="container">
+
+        <div class="row justify-content-md-center">
+            <div class="col-md-10">
+                <div class="contents text-center">
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block body %}
+
+    <section id="article" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title wow fadeIn" data-wow-duration="100ms" data-wow-delay="0.3s">Blog</h2>
+            </div>
+            <div class="row">
+
+                {% for article in articles %}
+                    <article class="col-md-10 offset-md-1">
+                        <a href="{{ path("blog_single", { 'slug': article.slug }) }}"><h1
+                                    class="section-title">{{ article.title }}</h1></a>
+                        <h6 class="section-subtitle">{{ article.createDate|date("d/m/Y") }}</h6>
+
+                        <div class="text-justify">
+                            {{ article.sample  | raw }}
+                        </div>
+
+                        <hr class="lines wow zoomIn" data-wow-delay="0.3s">
+                    </article>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html.twig" %}
+
+{% block header %}
+    <div class="overlay overlay-2"></div>
+    <div class="container">
+
+        <div class="row justify-content-md-center">
+            <div class="col-md-10">
+                <div class="contents text-center">
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block body %}
+
+    <section id="article" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title wow fadeIn" data-wow-duration="100ms" data-wow-delay="0.3s">Blog</h2>
+            </div>
+            <div class="row">
+                <article class="col-md-10 offset-md-1">
+                    <a href="{{ path("blog_single", { 'slug': article.slug }) }}"><h1
+                                class="section-title">{{ article.title }}</h1></a>
+                    <h6 class="section-subtitle">{{ article.createDate|date("d/m/Y") }}</h6>
+
+                    <div class="text-justify">
+                        {{ article.content  | raw }}
+                    </div>
+                    <hr class="lines wow zoomIn" data-wow-delay="0.3s">
+                    <div id="disqus_thread"></div>
+                    <script>
+
+                        /**
+                         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                        /*
+                        var disqus_config = function () {
+                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                        };
+                        */
+                        (function () { // DON'T EDIT BELOW THIS LINE
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://mtype-pl.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
+                            powered by Disqus.</a></noscript>
+                </article>
+            </div>
+        </div>
+    </section>
+{% endblock %}

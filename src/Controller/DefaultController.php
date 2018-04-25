@@ -23,6 +23,9 @@ class DefaultController extends Controller
         return $this->render('default/index.html.twig');
     }
 
+    /**
+     * @Route(path="/privatetest",name="default_index")
+     */
     public function privatetestAction()
     {
 

@@ -28,6 +28,6 @@ class DefaultController extends Controller
      */
     public function privatetestAction()
     {
-
+        return 200;
     }
 }

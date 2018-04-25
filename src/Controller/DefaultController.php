@@ -24,7 +24,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route(path="/privatetest",name="default_index")
+     * @Route(path="/privatetest",name="test_index")
      */
     public function privatetestAction()
     {
